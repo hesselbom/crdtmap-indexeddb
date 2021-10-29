@@ -1,8 +1,8 @@
 import VDoc from 'vjs'
 import * as encoding from 'lib0/dist/encoding.cjs'
 import * as decoding from 'lib0/dist/decoding.cjs'
-import * as idb from 'lib0/indexeddb.js'
-import * as mutex from 'lib0/mutex.js'
+import * as idb from 'lib0/dist/indexeddb.cjs'
+import * as mutex from 'lib0/dist/mutex.cjs'
 
 export function createIndexedDBHandler (name, doc) {
   const mux = mutex.createMutex()
