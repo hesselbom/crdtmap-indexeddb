@@ -1,4 +1,6 @@
 import VDoc from 'vjs'
+import * as encoding from 'lib0/dist/encoding.cjs'
+import * as decoding from 'lib0/dist/decoding.cjs'
 import * as idb from 'lib0/indexeddb.js'
 import * as mutex from 'lib0/mutex.js'
 
@@ -16,7 +18,10 @@ export function createIndexedDBHandler (name, doc) {
     const [snapshotStore] = idb.transact(db, ['snapshots'])
     const snapshot = {}
 
-    return idb.iterate(snapshotStore, undefined, (value, key) => {
+    return idb.iterate(snapshotStore, undefined, (data, key) => {
+      const decoder = decoding.createDecoder(data)
+      const value = decoding.readAny(decoder)
+
       snapshot[key] = value
     })
       .then(() => doc.applySnapshot(snapshot))
@@ -50,7 +55,11 @@ export function createIndexedDBHandler (name, doc) {
       for (const [key, value] of Object.entries(snapshot)) {
         const [snapshotStore] = idb.transact(db, ['snapshots'])
 
-        idb.put(snapshotStore, value, key)
+        const encoder = encoding.createEncoder()
+        encoding.writeAny(encoder, value)
+        const data = encoding.toUint8Array(encoder)
+
+        idb.put(snapshotStore, data, key)
       }
     }
   })
