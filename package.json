@@ -1,0 +1,23 @@
+{
+  "name": "v-indexeddb",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "./dist/v-indexeddb.cjs",
+  "scripts": {
+    "dist": "rm -rf dist && rollup -c",
+    "prepare": "npm run dist",
+    "test": "jest",
+    "lint": "standard",
+    "demo": "npm run dist && parcel demo/index.html"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1",
+    "parcel": "^2.0.0",
+    "rollup": "^2.58.3",
+    "standard": "^16.0.4"
+  },
+  "dependencies": {
+    "lib0": "^0.2.42",
+    "vjs": "https://github.com/hesselbom/vjs"
+  }
+}
