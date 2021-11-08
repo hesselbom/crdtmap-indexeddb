@@ -1,8 +1,8 @@
 {
-  "name": "v-indexeddb",
+  "name": "crdtmap-indexeddb",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "./dist/v-indexeddb.cjs",
+  "main": "./dist/crdtmap-indexeddb.cjs",
   "scripts": {
     "dist": "rm -rf dist && rollup -c",
     "prepare": "npm run dist",
@@ -18,6 +18,6 @@
   },
   "dependencies": {
     "lib0": "^0.2.42",
-    "vjs": "https://github.com/hesselbom/vjs"
+    "crdtmap": "0.1.1"
   }
 }

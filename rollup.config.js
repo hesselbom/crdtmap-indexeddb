@@ -1,10 +1,10 @@
 export default [
   {
     input: 'src/index.js',
-    external: id => /^(lib0|vjs)/.test(id),
+    external: id => /^(lib0|crdtmap)/.test(id),
     output: {
-      name: 'VIndexedDB',
-      file: 'dist/v-indexeddb.cjs',
+      name: 'CrdtMapIndexedDB',
+      file: 'dist/crdtmap-indexeddb.cjs',
       format: 'cjs',
       sourcemap: true
     }

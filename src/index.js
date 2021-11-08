@@ -1,4 +1,4 @@
-import VDoc from 'vjs'
+import CrdtMap from 'crdtmap'
 import * as encoding from 'lib0/dist/encoding.cjs'
 import * as decoding from 'lib0/dist/decoding.cjs'
 import * as idb from 'lib0/dist/indexeddb.cjs'
@@ -38,7 +38,7 @@ export function createIndexedDBHandler (name, doc) {
 
         // And now store snapshot from before indexeddb sync
         // To make sure we only store latest data, we filter snapshot first by getting appliedSnapshot from a dummy doc
-        const dummyDoc = VDoc()
+        const dummyDoc = CrdtMap()
         dummyDoc.applySnapshot(storedSnapshot)
         dummyDoc.on('snapshot', (_, appliedSnapshot) => {
           // Store applied snapshot, which is the changes we had in the doc prior to loading indexeddb

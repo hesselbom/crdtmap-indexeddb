@@ -1,8 +1,8 @@
-import VDoc from 'vjs'
-import { createIndexedDBHandler } from '../dist/v-indexeddb.cjs'
+import CrdtMap from 'crdtmap'
+import { createIndexedDBHandler } from '../dist/crdtmap-indexeddb.cjs'
 
-const doc = VDoc()
-const handler = createIndexedDBHandler('v-indexeddb-test', doc)
+const doc = CrdtMap()
+const handler = createIndexedDBHandler('crdtmap-indexeddb-test', doc)
 
 doc.set('key1', 'before-sync')
 
