@@ -19,5 +19,9 @@
   "dependencies": {
     "lib0": "^0.2.42",
     "crdtmap": "0.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hesselbom/crdtmap-indexeddb"
   }
 }
